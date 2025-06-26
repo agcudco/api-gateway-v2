@@ -16,6 +16,11 @@ public class AutorController {
     @Autowired
     private AutorService service;
 
+    @GetMapping("/prueba")
+    public String test() {
+        return "OK";
+    }
+
     @GetMapping
     public List<ResponseDto> listarAutores() {
         return service.listarAutores();

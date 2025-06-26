@@ -1,16 +1,15 @@
+server:
+  port: 8081
+
 spring:
-  web:
-    resources:
-      static-locations: [ ]
   application:
-    name: SERVICIO-PUBLICACIONES
+    name: servicio-publicaciones  # Nombre consistente en minúsculas
   datasource:
     url: jdbc:postgresql://localhost:5432/db-publications
     username: postgres
     password: qwerty123
   jpa:
     hibernate:
-      #ddl-auto: update
       ddl-auto: create-drop
     properties:
       hibernate:
@@ -23,8 +22,6 @@ spring:
     port: 5672
     username: admin
     password: admin
-server:
-  port: 8081
 
 eureka:
   client:
@@ -40,14 +37,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*" # Puedes reemplazar por health,info,metrics en producción
+        include: "*"
   endpoint:
     health:
       show-details: always
 
 logging:
   level:
-    org.springframework.cloud.gateway: DEBUG
     org.springframework.web: DEBUG
 
 info:

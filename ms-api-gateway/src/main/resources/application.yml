@@ -3,33 +3,33 @@ server:
 
 spring:
   application:
-    name: api-gateway
+    name: API-GATEWAY
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: publicaciones-autores
-          uri: lb://SERVICIO-PUBLICACIONES
-          predicates:
-            - Path=/api/autor, /api/autor/**
-          filters:
-            - StripPrefix=1
-        - id: publicacaciones-libros
-          uri: lb://SERVICIO-PUBLICACIONES
-          predicates:
-            - Path=/api/libro/**
-          filters:
-            - StripPrefix=1
-        - id: servicio-notificaciones
-          uri: lb://SERVICIO-NOTIFICACIONES
-          predicates:
-            - Path=/api/notificaciones/**
-          filters:
-            - StripPrefix=1
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: publicaciones-autores
+              uri: lb://servicio-publicaciones
+              predicates:
+                - Path=/autor,/autor/**
 
+            - id: publicaciones-libros
+              uri: lb://servicio-publicaciones
+              predicates:
+                - Path=/api/libro/**
+              filters:
+                - StripPrefix=1
+            - id: servicio-notificaciones
+              uri: lb://servicio-notificaciones
+              predicates:
+                - Path=/api/notificaciones/**
+              filters:
+                - StripPrefix=1
 eureka:
   client:
     service-url:
@@ -37,7 +37,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
 
 management:
   endpoints:
@@ -47,5 +47,5 @@ management:
 
 logging:
   level:
-    org.springframework.cloud.gateway: DEBUG
-    org.springframework.web: DEBUG
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.web: TRACE
