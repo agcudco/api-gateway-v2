@@ -2,9 +2,12 @@ spring:
   application:
     name: SERVICIO-NOTIFICACIONES
   datasource:
-    url: jdbc:postgresql://localhost:5432/bd-notificaciones
-    username: postgres
-    password: qwerty123
+    #url: jdbc:postgresql://localhost:5432/bd-notificaciones
+    #username: postgres
+    #password: qwerty123
+    url: jdbc:postgresql://localhost:26257/notificaciones_db?user=root&password=
+    username: root
+    password:
   jpa:
     hibernate:
       #ddl-auto: update
@@ -21,7 +24,7 @@ spring:
     username: admin
     password: admin
 server:
-  port: 8082
+  port: 0
 
 eureka:
   client:
