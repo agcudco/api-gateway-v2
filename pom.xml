@@ -17,5 +17,7 @@
         <module>ms-notificaciones</module>
         <module>ms-publicaciones</module>
         <module>sincronizacion</module>
+        <module>ms-seguridad</module>
+        <module>auth-service</module>
     </modules>
 </project>

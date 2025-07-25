@@ -6,12 +6,12 @@ spring:
   application:
     name: servicio-publicaciones  # Nombre consistente en minúsculas
   datasource:
-    #url: jdbc:postgresql://localhost:5432/db-publications
-    #username: postgres
-    #password: qwerty123
-    url: jdbc:postgresql://localhost:26257/publicaciones_db?user=root&password=
-    username: root
-    password:
+    url: jdbc:postgresql://localhost:5432/publicaciones_db
+    username: postgres
+    password: qwerty123
+    #url: jdbc:postgresql://localhost:26257/publicaciones_db?user=root&password=
+    #username: root
+    #password:
   jpa:
     hibernate:
 
